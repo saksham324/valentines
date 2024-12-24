@@ -111,6 +111,29 @@ body {
     left: 0
 }
 
-#copyright a {
-    color: #666
+/* Style for the container
+#button-container {
+    position: fixed;
+    left: 50%;
+    bottom: 20px;
+    transform: translateX(-50%);
+    text-align: center;
 }
+
+
+#letter-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #ff6699; 
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+    border: none; 
+    cursor: pointer; 
+    transition: background-color 0.3s;
+}
+
+#letter-button:hover {
+    background-color: #ff3366; 
+} */

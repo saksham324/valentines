@@ -1,3 +1,15 @@
+var catImage = new Image();
+catImage.src = 'ace.png'; // Replace with your image path
+
+function drawCat(ctx, x, y) {
+    const width = 1000;  
+    const height = 1000; 
+
+    // Draw the image at the given position
+    ctx.drawImage(catImage, x - width / 2, y - height / 2, width, height);
+}
+
+
 var $window = $(window), gardenCtx, gardenCanvas, $garden, garden;
 var clientWidth = $(window).width();
 var clientHeight = $(window).height();
@@ -36,31 +48,31 @@ function getHeartPoint(c) {
 }
 
 function startHeartAnimation() {
-	var c = 50;
-	var d = 10;
-	var b = new Array();
-	var a = setInterval(function () {
-		var h = getHeartPoint(d);
-		var e = true;
-		for (var f = 0; f < b.length; f++) {
-			var g = b[f];
-			var j = Math.sqrt(Math.pow(g[0] - h[0], 2) + Math.pow(g[1] - h[1], 2));
-			if (j < Garden.options.bloomRadius.max * 1.3) {
-				e = false;
-				break
-			}
-		}
-		if (e) {
-			b.push(h);
-			garden.createRandomBloom(h[0], h[1])
-		}
-		if (d >= 30) {
-			clearInterval(a);
-			showMessages()
-		} else {
-			d += 0.2
-		}
-	}, c)
+    var c = 50;
+    var d = 10;
+    var b = new Array();
+    var a = setInterval(function () {
+        var h = getHeartPoint(d);
+        var e = true;
+        for (var f = 0; f < b.length; f++) {
+            var g = b[f];
+            var j = Math.sqrt(Math.pow(g[0] - h[0], 2) + Math.pow(g[1] - h[1], 2));
+            if (j < 30) { 
+                e = false;
+                break;
+            }
+        }
+        if (e) {
+            b.push(h);
+            drawCat(gardenCtx, h[0], h[1]); // Draw the cat
+        }
+        if (d >= 30) {
+            clearInterval(a);
+            showMessages();
+        } else {
+            d += 0.2;
+        }
+    }, c);
 }
 
 (function (a) {
